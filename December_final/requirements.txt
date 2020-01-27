@@ -1,0 +1,8 @@
+pandas==0.25.3
+geopandas==0.6.2
+Shapely==1.6.4.post2
+matplotlib==3.1.2
+streamlit==0.53.0
+numpy==1.17.4
+folium==0.10.1
+descartes==1.1.0
