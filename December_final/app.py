@@ -19,7 +19,7 @@ listing_comments.head()
 
 @st.cache
 def get_data1():
-    return  pd.read_csv('./airbnb_clean1.csv')
+    return  pd.read_csv('./test.csv')
 
 airbnb_clean = get_data1()
 airbnb_coord = airbnb_clean[['latitude','longitude','listing_url']]
