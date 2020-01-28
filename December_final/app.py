@@ -12,19 +12,19 @@ import streamlit as st
 
 @st.cache
 def get_data():
-    return  pd.read_csv('final_december_df.csv')
+    return  pd.read_csv('https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/December_final/final_december_df.csv')
 
 listing_comments = get_data()
 
 @st.cache
 def get_data():
-    return  pd.read_csv('airbnb_clean1.csv')
+    return  pd.read_csv('https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/December_final/airbnb_clean1.csv')
 
 airbnb_clean = get_data()
 airbnb_coord = airbnb_clean[['latitude', 'longitude','listing_url']]
 @st.cache
 def get_data():
-    return  pd.read_csv('k_means_visual.csv')
+    return  pd.read_csv('https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/December_final/k_means_visual.csv')
 
 k_means_visual = get_data()
 k_means_map = pd.concat([k_means_visual, airbnb_coord], axis=1)
@@ -34,7 +34,7 @@ k_means_map_geo = geopandas.GeoDataFrame(k_means_map, geometry=geopandas.points_
 
 @st.cache
 def get_data():
-    return geopandas.read_file("neighbourhoods.geojson")
+    return geopandas.read_file("https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/December_final/neighbourhoods.geojson")
 
 nbhoods = get_data
 
