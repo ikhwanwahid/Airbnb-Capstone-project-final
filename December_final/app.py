@@ -10,7 +10,7 @@ from descartes import PolygonPatch
 import streamlit as st
 
 
-@st.cache(allow_output_mutation=True)
+@st.cache()
 def get_data():
     return  pd.read_csv('./final_december_df.csv')
 
@@ -29,7 +29,7 @@ def get_data2():
 
 k_means_visual = get_data2()
 
-@st.cache(allow_output_mutation=True)
+@st.cache()
 def get_data3():
     k_means_map = pd.concat([k_means_visual, airbnb_coord], axis=1)
     return k_means_map
@@ -43,7 +43,7 @@ k_means_map_geo = get_data4()
 
 
 
-@st.cache(allow_output_mutation=True)
+@st.cache()
 def get_data3():
     return geopandas.read_file("./neighbourhoods.geojson")
 
