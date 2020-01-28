@@ -21,7 +21,7 @@ def get_data():
     return  pd.read_csv('./airbnb_clean1.csv')
 
 airbnb_clean = get_data()
-    print(airbnb_clean.columns)
+print(airbnb_clean.columns)
 @st.cache
 def get_data():
     return  pd.read_csv('./k_means_visual.csv')
