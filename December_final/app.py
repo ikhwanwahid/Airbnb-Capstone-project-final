@@ -28,6 +28,8 @@ def get_data2():
     return  pd.read_csv('./k_means_visual.csv')
 
 k_means_visual = get_data2()
+
+
 k_means_map = pd.concat([k_means_visual, airbnb_coord], axis=1)
 k_means_map_geo = geopandas.GeoDataFrame(k_means_map, geometry=geopandas.points_from_xy(k_means_map.longitude,
                                                                             k_means_map.latitude))
