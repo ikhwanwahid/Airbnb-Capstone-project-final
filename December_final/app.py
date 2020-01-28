@@ -22,7 +22,7 @@ def get_data1():
     return  pd.read_csv('./airbnb_clean1.csv')
 
 airbnb_clean = get_data1()
-airbnb_coord = airbnb_clean[['listing_url']]
+airbnb_coord = airbnb_clean[['latitude','longitude','listing_url']]
 
 @st.cache
 def get_data2():
