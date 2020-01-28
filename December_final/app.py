@@ -21,15 +21,15 @@ listing_comments.head()
 def get_data1():
     return  pd.read_csv('./airbnb_clean1.csv')
 
-#airbnb_clean = get_data1()
-#airbnb_coord = airbnb_clean[['latitude','longitude','listing_url']]
+airbnb_clean = get_data1()
+airbnb_coord = airbnb_clean[['latitude','longitude','listing_url']]
 
 @st.cache
 def get_data2():
     return  pd.read_csv('./k_means_visual.csv')
 
 k_means_visual = get_data2()
-k_means_map = pd.concat([k_means_visual], axis=1)
+k_means_map = pd.concat([k_means_visual, airbnb_coord], axis=1)
 k_means_map_geo = geopandas.GeoDataFrame(k_means_map, geometry=geopandas.points_from_xy(k_means_map.longitude,
                                                                             k_means_map.latitude))
 
