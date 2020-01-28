@@ -10,7 +10,7 @@ from descartes import PolygonPatch
 import streamlit as st
 
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def get_data():
     return  pd.read_csv('./final_december_df.csv')
 
@@ -43,7 +43,7 @@ k_means_map_geo = get_data4()
 
 
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def get_data3():
     return geopandas.read_file("./neighbourhoods.geojson")
 
