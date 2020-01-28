@@ -35,7 +35,7 @@ def get_data3():
     return k_means_map
 k_means_map=get_data3()
 
-@st.cache(allow_output_mutation=True)
+@st.cache()
 def get_data4():
     k_means_map_geo = geopandas.GeoDataFrame(k_means_map, geometry=geopandas.points_from_xy(k_means_map.longitude,k_means_map.latitude))
     return k_means_map_geo
