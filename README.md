@@ -1,4 +1,4 @@
-# Capstone Project : Classify suspicious Airbnb Listings (NY)Improving overall UX !
+# Capstone Project : Classify suspicious Airbnb Listings (NY) Improving overall UX !
 
 
 Goal and Approach
@@ -24,12 +24,12 @@ My project has two parts.
 
 # Notebooks for Classification Modelling:
 
-- [Filtering Listings](Deployment_Test(1).ipynb)
-- [Cleaning and Data Munging](ListingsDatasetCleaning(1).ipynb)
-- [Feature Engineering 1](feature_engineering(2).ipynb)
-- [Feature Engineering 2](feature_engineering(3).ipynb)
-- [PCA](PCA(4).ipynb)
-- [Doing K_means](Doing_K_means(5).ipynb)
+- [Filtering Listings](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Deployment_Test(1).ipynb)
+- [Cleaning and Data Munging](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/ListingsDatasetCleaning(1).ipynb)
+- [Feature Engineering 1](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/feature_engineering(2).ipynb)
+- [Feature Engineering 2](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/feature_engineering(3).ipynb)
+- [PCA](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/PCA(4).ipynb)
+- [Doing K_means](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Doing_K_means(5).ipynb)
 
 
 Dataset, Preprocessing, and Evaluation
@@ -60,8 +60,8 @@ One of the first obstacles encountered was the absence of a target column. There
 I made an informed decision to first compare listings found in December and January.
 The number of listings that were missing in Dec from January was 25000+.
 These listings were removed mainly because of two things.
-1.Owner has decided to not host anymore.
-2.Airbnb has removed them due to non-compliance to rules. (This is where our scams will be)
+<br>1.Owner has decided to not host anymore.
+<br>2.Airbnb has removed them due to non-compliance to rules. (This is where our scams will be)
 
 
 
