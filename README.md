@@ -10,20 +10,62 @@ This can be a harrowing experience for airbnb users, and adds unncessary stress 
 
 
 My project has two parts.
-1. Aims to explore the possibility of using machine learning to successfully classify potential suspicious listings. With this we can filter them out of the system so that they wont be "accidentally" chosen by unwary users.
-2. With the updated listings, we can find similirities between each listings and provide effective recommendations for a user with their specific names
+1. We aims to explore the possibility of using machine learning to successfully classify potential suspicious listings. With this we can filter them out of the system so that they wont be "accidentally" chosen by unwary users.
+2. With the updated listings, we can find similarity between each listings and provide effective recommendations for a user with their specific names
+
+# Notebooks for Topic Modelling:
+
+- [Classification Model 2](Classification.ipynb)
+- [Classification Model 2](Classification2.ipynb)
+- [Final Classification Model 2](FinalClassification.ipynb)
+- [December Classification Model](DecemberClassification.ipynb)
+- [Hypertuning](Hypertuning.ipynb)
+
+
+# Notebooks for Classification Modelling:
+
+- [Filtering Listings](Deployment_Test(1).ipynb)
+- [Cleaning and Data Munging](ListingsDatasetCleaning(1).ipynb)
+- [Feature Engineering 1](feature_engineering(2).ipynb)
+- [Feature Engineering 2](feature_engineering(3).ipynb)
+- [PCA](PCA(4).ipynb)
+- [Doing K_means](Doing_K_means(5).ipynb)
+
 
 Dataset, Preprocessing, and Evaluation
 --------------------------------------
-Our dataset was provided from three different Kaggle repositories - detailing the same features for Boston, Seattle, and New York City (all 5 boroughs included). Links to each dataset are included here:  
+My dataset was provided from the best website for airbnb scrapped data : https://http://insideairbnb.com/get-the-data.html. A total of 4 datasets was obtained from this website and they are as follows.
 
-__Boston__ 3586 rows: https://www.kaggle.com/airbnb/boston
+__NY December Listings__ 40000+ rows: http://data.insideairbnb.com/united-states/ny/new-york-city/2019-12-04/data/listings.csv.gz
 
-__Seattle__ 3818 rows: https://www.kaggle.com/airbnb/seattle
+__NY December Reviews__ 1000000+ rows: http://data.insideairbnb.com/united-states/ny/new-york-city/2019-12-04/data/reviews.csv.gz
 
-__New York__ 44317 rows (only 3000/6000 used): https://www.kaggle.com/peterzhou/airbnb-open-data-in-nyc
+__NY January Listings__ 40000+ rows : http://data.insideairbnb.com/united-states/ny/new-york-city/2019-01-09/data/listings.csv.gz
 
-Preprocessing of the dataset was performed using Trifacta and Python. The preprocessing scripts are included in the data folder and the parse.py file. In order to evaluate our models, we calculated 5-fold cross-validated R2 scores, where our task was to predict the price value for an unseen Airbnb. The features used for each analysis are included in the Table below this section. In total from each file there are 104 potential features from all data sources (NY has some additional that we removed). All modeling work is done in the model.py file on our Github (currently best parameters are in the file).
+__NY January Reviews__ 800000+ rows: http://data.insideairbnb.com/united-states/ny/new-york-city/2019-01-09/data/reviews.csv.gz
+
+Part 1: Topic Modelling
+--------------
+
+Preprocessing of the dataset was performed using Python. The preprocessing scripts are included in the LDA_model folder. In order to classify our listings into suspicious listings and legitamate ones, we will first be using the reviews datasets. These datasets had only 6 columns, but only 2 of them are of interest to us
+
+| Interest | Non-interest |
+|------|--------|
+|listing_id|id|
+|comments|date|
+||reviewer_id|
+||reviewer_name|
+
+One of the first obstacles encountered was the absence of a target column. There is no column indicating if the listings in the datasets were suspicious in nature.
+I made an informed decision to first compare listings found in December and January.
+The number of listings that were missing in Dec from January was 25000+.
+These listings were removed mainly because of two things.
+1.Owner has decided to not host anymore.
+2.Airbnb has removed them due to non-compliance to rules. (This is where our scams will be)
+
+
+
+
 
 | Basic | Advanced | Deep|
 |------|--------|-------|
@@ -40,7 +82,6 @@ Preprocessing of the dataset was performed using Trifacta and Python. The prepro
 |amenities|
 |guests_included|
 |minimum_nights|
-|__13 new features__|__10 new features__|__3 new features__|
 
 
 Basic Analysis
@@ -49,14 +90,6 @@ Once our data was preprocessed, we included the basic features from Table 2, and
 
 From here, we tried tuning the hyperparameters of each model, largely being unsuccessful. We again turned to examining our overall approach. We noticed that when modifying our parameters, there were signs of overfitting. Additionally, we dove into the actual prices of Airbnb’s within each city and noticed that there were some listings that had an astronomical price difference (over $700 per night) - particularly in New York. Figure 3 represents the distributions. To alleviate these issues we put a variance limit on features (features under a variance limit would not be included) and a price limit on listings to be included. This pushed our model scores even higher - and they can be found in Table 5.
 
-Intermediate Analysis
----------------------
-Up until this point, we were quite happy with the results obtained in the basic analysis - and had high confidence that reviews would push us into 90% training accuracy territory. However, just adding in our features from the intermediate analysis in Table 2 and running the same models (with variance and price limit) only increased our accuracy very slightly. We attempted to tune the parameters of the model - but we still were not able to beat our best basic analysis score by much. The results are shown in Table 6. We scratched our heads and thought - maybe we do not have ample data from New York - given that is is a larger market. We increased our NYC number of tuples from 3,000 to 6,000, but the accuracy actually decreased across the board. This work demonstrated two key learnings - New York is a significantly more difficult market to predict than others even with a substantial amount of data, and reviews are not as important as we first hypothesized. We believe this is due to a bifurcation of human scoring. People either tend to leave amazing reviews, or reviews that “bash” a listing. This creates a feature that is not all that great to actually discern the price. Additionally, we attempted to train a model on all attributes in the entire dataset ( 104 attributes), but our accuracy dropped further, illustrating the concept of overfitting well. This is included in the exploratory_data_analysis.ipynb and hyperparameter tuning.ipynb jupyter notebook files.
-
-Advanced Analysis
------------------
-As previously mentioned in our update - the advanced analysis was a potential objective. To make quick progress, we trained a simple neural network on just the listing description, as shown in the text_analysis.py file. Then, using TF-IDF and the TextBlob module we derived the sentiment from each description, and added it as a feature to our best performing previous model. This boosted our results very slightly for the ensemble methods but caused the other regressors to slightly decrease, which we believe that is due to overfitting. The results are included in Table 7.
-We also attempted to use the created TF-IDF vector to train a deep neural network to regress the value a listing may receive as an overall rating score. Although the mean-squared error (MSE) of the network during the training phase dropped substantially over the epochs, indicating the trained state of the network, the testing MSE remained high. This indicates that there is no specific nature of a superficial description that results in better (or worse) ratings, or there are no specific keywords of a description that are good indicators of a particular rating.
 
 Suggestions for Future Work
 ---------------------------
