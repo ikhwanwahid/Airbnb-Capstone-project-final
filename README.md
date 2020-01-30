@@ -60,9 +60,20 @@ One of the first obstacles encountered was the absence of a target column. There
 I made an informed decision to first compare listings found in December and January.
 The number of listings that were missing in Dec from January was 25000+.
 These listings were removed mainly because of two things.
+<br>
 <br>1.Owner has decided to not host anymore.
 <br>2.Airbnb has removed them due to non-compliance to rules. (This is where our scams will be)
+<br>
+In a nutshell our text processing  process is as follows
+ - Removing Stopwords
+ - Creating bigrams and trigrams using gensim.models.phrases
+ - Lemmatize the texts using spacey
 
+Next we used the LDA model found in the gensim package to create our topics of interest.
+<br>In our first iteration of the model, we picked a random number of topics to formulate.
+That was 20 topics. After iteration this were the results.
+
+[Results1](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/firstlda.html)
 
 
 
