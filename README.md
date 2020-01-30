@@ -15,11 +15,11 @@ My project has two parts.
 
 # Notebooks for Topic Modelling:
 
-- [Classification Model 2](Classification.ipynb)
-- [Classification Model 2](Classification2.ipynb)
-- [Final Classification Model 2](FinalClassification.ipynb)
-- [December Classification Model](DecemberClassification.ipynb)
-- [Hypertuning](Hypertuning.ipynb)
+- [Classification Model 1](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Classification.ipynb)
+- [Classification Model 2](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Classification2.ipynb)
+- [Final Classification Model 2](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/FinalClassification.ipynb)
+- [December Classification Model](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/DecemberClassification.ipynb)
+- [Hypertuning](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Hypertuning.ipynb)
 
 
 # Notebooks for Classification Modelling:
