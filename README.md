@@ -76,44 +76,45 @@ That was 20 topics. After iteration this were the results.
 
 ![Results1](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture1.png)
 
+The model does a good job in grouping words into the topics. We can more or less decipher based on the words in the topics what the topic is about. However what I discovered from the first iteration row_values
+
+- 20 topics was too much, almost impossible to name all 20 topics.
+- From the visualisation we can see that some topics are intertwined with each other, suggesting similarity between them
+- We should decide on how many topics would serve our purpose, in this case (5)
+  - Overall experience
+  - Host experience
+  - Host Communication
+  - Location
+  - Accomodation amenities
+
+With that we repeat our model iteration again.
+Subsequently through hypertuning we fitted a final model for our comments found in the December dataset.
+
+![Results2](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture2.png)
+
+What we have finally are 5 distinct topics modelled by LDA. Upon closer inspection, these topics obtained are in line with 5 topics that we have sought to achieve previously.
+
+Finally I did a sentiment analysis onto the comments, To get an idea of the sentiment of each comments, and what the dominant topic that is associated with that comment.
 
 
-
-| Basic | Advanced | Deep|
-|------|--------|-------|
-|latitude|review_scores_rating|description|
-|longitude|reviews_per_month|picture_url|
-|property_type|number_of_reviews|host_picture_url|
-|room_type|host_response_time
-|accommodates|host_response_rate
-|bathrooms|host_is_superhost
-|bedrooms|host_total_listings_count
-|beds|host_verifications
-|cancellation_policy|host_identity_verified
-|bed_type|host_acceptance_rate
-|amenities|
-|guests_included|
-|minimum_nights|
-
-
-Basic Analysis
+Part 2: Clustering
 --------------
-Once our data was preprocessed, we included the basic features from Table 2, and ran multiple different regression techniques (note, we did not include features with a * in the table, and choose a 3,000 listing subset of NYC data). We choose to run Linear, Lasso, Ridge, and Elastinet standard regressions to help with different dependencies that may be present within the data, along with a random forest and a gradient boosted regressor to represent ensemble methods. Our initial results are shown in Table 3. Looking at these values, we were surprised that our standard regression techniques were performing much better than our ensembles on test evaluation. We dove into the data and discovered two key insights. First, thinking about how we would personally search for an Airbnb, we realized that location was likely the most important feature. However, when we looked at our basic attributes we realized that longitude and latitude were the only features representing location - and our model may have not been powerful enough to truly utilize this complex representation. We revisited the available features and added in the neighborhood feature - which is a location based filter provided to users querying for an airbnb listing. Additionally, we looked further into the New York dataset, as removing the tuples from our initial approach had significantly impacted our scores, as shown in the right hand side of Table 3. When visualizing our data with Tableau (shown in Figure 1, we realized that the New York dataset was not fully representing the market diversity well, as the dataset was not fully shuffled. Shuffling our New York dataset (shown in Figure 2) and adding in location - our train and test accuracy increased substantially as shown in Table 4. This accuracy bump represented a core feature in machine learning that we discussed in class around the Netflix recommendation prize - relevant features with a simple model are significantly more important than extraneous features with a very complex model.  
 
-From here, we tried tuning the hyperparameters of each model, largely being unsuccessful. We again turned to examining our overall approach. We noticed that when modifying our parameters, there were signs of overfitting. Additionally, we dove into the actual prices of Airbnb’s within each city and noticed that there were some listings that had an astronomical price difference (over $700 per night) - particularly in New York. Figure 3 represents the distributions. To alleviate these issues we put a variance limit on features (features under a variance limit would not be included) and a price limit on listings to be included. This pushed our model scores even higher - and they can be found in Table 5.
+Preprocessing of the dataset was performed using Python. The preprocessing scripts are included in the December_final folder. The goal of part 2 was to recommend similar listings to a user based on the one he/she has already picked beforehand.
+
+We have reduced the original columns of 107 columns down to 55. In the property_type columns, we see more then 20 different types of properties. We decided that the only listings that are of concern to us are those that already
+  - Apartments
+  - House
+  - Townhouse
+  - Condominiums
+
+Subsequently we one hot encoded (get dummies) the categorical categories, and our final dataset contains 79 columns.
+
+Principal component analysis was done on the features in our dataset, to obtain the non spatial relationships between the features. We got 50 components and subsequently did a K-means clustering to finally cluster the listings into 3  groups.
+
 
 
 Suggestions for Future Work
 ---------------------------
-Our conclusions to our work are summarized at a high level on the main landing webpage. In terms of directing future work, there are many things that we would like to do. First, we would very much like to see how our model generalizes to other cities (with some training data). Also - we think trying to extract information from the images included could potentially be very powerful.
 
-Group Member Work
------------------
-Throughout the duration of the project, all group members put substantial work into the direction and execution of the work completed. However, segmenting the work as requested,  Albert focused on exploratory feature analysis, Keith was responsible for model and feature selection, and Rhett and Lukas built, trained and tuned the models. We feel strongly that each member was essential and had great value add.
-
-![Results1](https://github.com/Lukas-Justen/Airbnb-Price-Evaluator/raw/master/docs/img/results1.png)
-![Results2](https://github.com/Lukas-Justen/Airbnb-Price-Evaluator/raw/master/docs/img/results2.png)
-![NewYork](https://github.com/Lukas-Justen/Airbnb-Price-Evaluator/raw/master/docs/img/ny.png)
-![Prices](https://github.com/Lukas-Justen/Airbnb-Price-Evaluator/raw/master/docs/img/prices.png)
-
-_by Keith Pallo, Rhett Dsouza, Albert Z. Guo, Lukas Justen_
+Honestly my work here is mostly assumption work. I assume suspicious listings are once that contain negative comments belonging to 3 topic groups. While the end goal is to filter them out so that no users are able to choose them unknowingly, it would be of great help to actually get confirmation from DATA stating that these listings filtered out are indeed scams. By knowing the true postives ,true negatives of our model we can actually see how well it is performing. Subsequently we can retrain our model using other methods other then NLP, knowing there is a target value.
