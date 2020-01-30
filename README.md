@@ -74,7 +74,7 @@ Next we used the LDA model found in the gensim package to create our topics of i
 <br>In our first iteration of the model, we picked a random number of topics to formulate.
 That was 20 topics. After iteration this were the results.
 
-[Results1](file:///Users/ikhyvicky/Desktop/GA_stuff/January/Ikhwan-Capstone-project-final/LDA_model/firstlda.html)
+[Results1](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture1.png)
 
 
 
