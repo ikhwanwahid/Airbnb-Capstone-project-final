@@ -63,7 +63,8 @@ These listings were removed mainly because of two things.
 <br>
 <br>1.Owner has decided to not host anymore.
 <br>2.Airbnb has removed them due to non-compliance to rules. (This is where our scams will be)
-<br>
+
+
 In a nutshell our text processing  process is as follows
  - Removing Stopwords
  - Creating bigrams and trigrams using gensim.models.phrases
