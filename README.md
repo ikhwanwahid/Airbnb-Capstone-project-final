@@ -94,7 +94,10 @@ Subsequently through hypertuning we fitted a final model for our comments found 
 
 What we have finally are 5 distinct topics modelled by LDA. Upon closer inspection, these topics obtained are in line with 5 topics that we have sought to achieve previously.
 
-Finally I did a sentiment analysis onto the comments, To get an idea of the sentiment of each comments, and what the dominant topic that is associated with that comment.
+Finally I did a sentiment analysis onto the comments, To get an idea of the sentiment of each comments, and what the dominant topic that is associated with that comment
+
+![Results3](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture3.png)
+
 
 
 Part 2: Clustering
@@ -112,7 +115,7 @@ Subsequently we one hot encoded (get dummies) the categorical categories, and ou
 
 Principal component analysis was done on the features in our dataset, to obtain the non spatial relationships between the features. We got 50 components and subsequently did a K-means clustering to finally cluster the listings into 3  groups.
 
-
+![Results4](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture4.png)
 
 Suggestions for Future Work
 ---------------------------
