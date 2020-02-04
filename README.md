@@ -24,12 +24,12 @@ My project has two parts.
 
 # Notebooks for Classification Modelling:
 
-- [Filtering Listings](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Deployment_Test(1).ipynb)
-- [Cleaning and Data Munging](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/ListingsDatasetCleaning(1).ipynb)
-- [Feature Engineering 1](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/feature_engineering(2).ipynb)
-- [Feature Engineering 2](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/feature_engineering(3).ipynb)
-- [PCA](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/PCA(4).ipynb)
-- [Doing K_means](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Doing_K_means(5).ipynb)
+- [Filtering Listings](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/December_final/Deployment_Test(1).ipynb)
+- [Cleaning and Data Munging](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/December_final/ListingsDatasetCleaning(1).ipynb)
+- [Feature Engineering 1](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/December_final/feature_engineering(2).ipynb)
+- [Feature Engineering 2](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/December_final/feature_engineering(3).ipynb)
+- [PCA](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/December_final/PCA(4).ipynb)
+- [Doing K_means](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/December_final/Doing_K_means(5).ipynb)
 
 
 Dataset, Preprocessing, and Evaluation
