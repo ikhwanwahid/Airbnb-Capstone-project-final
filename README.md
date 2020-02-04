@@ -15,11 +15,11 @@ My project has two parts.
 
 # Notebooks for Topic Modelling:
 
-- [Classification Model 1](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Classification.ipynb)
-- [Classification Model 2](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Classification2.ipynb)
-- [Final Classification Model 2](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/FinalClassification.ipynb)
-- [December Classification Model](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/DecemberClassification.ipynb)
-- [Hypertuning](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/tree/master/LDA_model/Hypertuning.ipynb)
+- [Classification Model 1](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/Classification.ipynb)
+- [Classification Model 2](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/Classification2.ipynb)
+- [Final Classification Model 2](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/FinalClassification.ipynb)
+- [December Classification Model](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/DecemberClassification.ipynb)
+- [Hypertuning](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/Hypertuning.ipynb)
 
 
 # Notebooks for Classification Modelling:
@@ -74,7 +74,7 @@ Next we used the LDA model found in the gensim package to create our topics of i
 <br>In our first iteration of the model, we picked a random number of topics to formulate.
 That was 20 topics. After iteration this were the results.
 
-![Results1](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture1.png)
+![Results1](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/Picture1.png)
 
 The model does a good job in grouping words into the topics. We can more or less decipher based on the words in the topics what the topic is about. However what I discovered from the first iteration row_values
 
@@ -90,13 +90,13 @@ The model does a good job in grouping words into the topics. We can more or less
 With that we repeat our model iteration again.
 Subsequently through hypertuning we fitted a final model for our comments found in the December dataset.
 
-![Results2](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture2.png)
+![Results2](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/Picture2.png)
 
 What we have finally are 5 distinct topics modelled by LDA. Upon closer inspection, these topics obtained are in line with 5 topics that we have sought to achieve previously.
 
 Finally I did a sentiment analysis onto the comments, To get an idea of the sentiment of each comments, and what the dominant topic that is associated with that comment
 
-![Results3](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture3.png)
+![Results3](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/Picture3.png)
 
 
 
@@ -115,7 +115,7 @@ Subsequently we one hot encoded (get dummies) the categorical categories, and ou
 
 Principal component analysis was done on the features in our dataset, to obtain the non spatial relationships between the features. We got 50 components and subsequently did a K-means clustering to finally cluster the listings into 3  groups.
 
-![Results4](https://git.generalassemb.ly/DSI-SG-11/Ikhwan-Capstone-project-final/blob/master/LDA_model/Picture4.png)
+![Results4](https://github.com/ikhwanwahid/Airbnb-Capstone-project-final/tree/master/LDA_model/Picture4.png)
 
 Suggestions for Future Work
 ---------------------------
